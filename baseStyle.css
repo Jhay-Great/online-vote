@@ -1,0 +1,19 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+html {
+  box-sizing: border-box;
+  font-size: 15px;
+}
+body {
+  width: 100%;
+  font-family: sans-serif;
+  /* overflow: hidden; */
+}
+
+/* GENERAL CLASSLIST STYLES */
+.sticky {
+  position: fixed;
+}

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form</title>
+    <link rel="stylesheet" href="baseStyle.css" />
+    <link rel="stylesheet" href="form.css" />
+    <script src="form.js" defer></script>
+  </head>
+  <body>
+    <div class="form-container">
+      <form action="">
+        <input type="text" placeholder="Name" required class="name" />
+
+        <input type="email" placeholder="Email" required class="email" />
+
+        <textarea
+          name=""
+          id="description"
+          cols="30"
+          rows="10"
+          placeholder="Describe the purpose of vote and what you want to achieve."
+        ></textarea>
+
+        <input type="submit" value="Submit" />
+      </form>
+      <div class="pop-up_container hidden">
+        <p class="pop-up">Done. Thank you</p>
+        <button class="okay-btn">Okay</button>
+      </div>
+    </div>
+    <div class="overlay hidden"></div>
+  </body>
+</html>
