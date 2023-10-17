@@ -31,6 +31,10 @@ const formReset = function(e) {
   })
 }
 
+window.addEventListener('load', function() {
+  nameField.focus();
+})
+
 // Event listeners
 form.addEventListener("submit", function (e) {
   e.preventDefault();
