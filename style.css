@@ -18,6 +18,8 @@ nav {
     padding: 1rem 2rem;
     height: 20%;
     width: 100%;
+    display: flex;
+    justify-content: space-evenly;
     background-color: blue;
 }
 nav > ul {
@@ -28,7 +30,7 @@ nav > ul {
     flex-wrap: wrap;
     width: 80%;
     height: 100%;
-    margin: auto;
+    /* margin: auto; */
     font-size: 1rem;
     font-weight: 600;
     text-transform: uppercase;
@@ -75,20 +77,35 @@ a {
     justify-content: center;
     text-decoration: none;
 }
-button {
+.sign-up {
     width: 100%;
     padding: .3rem;
     background: transparent;
     border: none;
     /* text-decoration: underline; */
     /* border-bottom: 2px solid darkslategray; */
-    font-size: .8rem;
+    font-size: .95rem;
     font-weight: 700;
     color: rgba(0, 0, 255, 0.452);
     text-transform: uppercase;
     letter-spacing: 1.6px;
     cursor: pointer;
     /* margin: 1rem auto; */
+}
+.sign-up:hover {
+    color: #fff;
+}
+
+/* LOGIN STYLES */
+.user-login {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: .8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
 /* -----------------------------MAIN STYLES------------------------------------- */
