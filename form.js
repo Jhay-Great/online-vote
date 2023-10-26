@@ -6,7 +6,7 @@ const overlay = document.querySelector(".overlay");
 const okayBtn = document.querySelector(".okay-btn");
 const nameField = document.querySelector('.name');
 const emailField = document.querySelector('.email');
-const description = document.getElementById('description');
+// const description = document.getElementById('.description');
 
 // Helper Functions
 const validate = function(e) {
@@ -15,9 +15,11 @@ const validate = function(e) {
 
     if (e.target.value === '') {
         e.target.classList.add('negative-validation')
+        e.target.closest('.form-fields').querySelector('label').style.backgroundColor = 'transparent';
     };
     if (e.target.value !== '') {
         e.target.classList.add('positive-validation')
+        e.target.closest('.form-fields').querySelector('label').style.backgroundColor = 'green';
     }
     // console.log(e.target.value)
     
@@ -42,7 +44,7 @@ form.addEventListener("submit", function (e) {
   popUp.classList.remove("hidden");
   overlay.classList.remove("hidden");
 
-  formReset([nameField, emailField, description]);
+  formReset([nameField, emailField]);
 
 });
 
@@ -61,9 +63,71 @@ okayBtn.addEventListener("click", function () {
 //   overlay.classList.add("hidden");
 // });
 
+const getElement = function(e, id) {
+  return e.target.closest('.form-fields').querySelector(id);
+}
+
 // form validation
+form.addEventListener('blur', function(e) {
+  if(!e.target.closest('.form-fields')) return;
+
+  // console.log(getElement(e, '.email'));
+
+  const email = e.target.closest('.form-fields').querySelector('.email');
+  // console.log(email)
+
+  if(email && email?.value.includes('@')) {
+    e.target.closest('.form-fields').querySelector('label').style.backgroundColor = 'green';
+  };
+  if (email && !email?.value.includes('@')) {
+    e.target.closest('.form-fields').querySelector('label').style.backgroundColor = 'red';
+  };
+
+
+  let password;
+  if(e.target.closest('.form-fields').querySelector('#password')) {
+    password = e.target.closest('.form-fields').querySelector('#password');
+    console.log(password.value);
+  }
+  if(e.target.closest('.form-fields').querySelector('#confirm-password')) {
+    const confirmPassword = e.target.closest('.form-fields').querySelector('#confirm-password');
+    console.log(confirmPassword.value);
+
+    console.log(password);
+
+    if (password.value === confirmPassword.value) {
+      // e.target.closest('.form-fields').querySelector('label').style.backgroundColor = 'green';
+      console.log('pass')
+    }
+    if (password.value !== confirmPassword.value) {
+      e.target.closest('.form-fields').querySelector('label').style.backgroundColor = 'red';
+      console.log('failed');
+    }
+  }
+
+
+  
+}, true);
+
+// console.log(window.getComputedStyle(document.querySelector('h1'), null));
+// console.log(document.styleSheets[1])
+
+
+
 nameField.addEventListener('blur', validate);
+
 // need to work on the @ validation here
-emailField.addEventListener('blur', validate);
-description.addEventListener('blur', validate);
+emailField.addEventListener('blur', function(e) {
+  e.target.classList.remove('negative-validation');
+
+  
+  e.target.value.includes('@') ? e.target.classList.add('positive-validation') : e.target.classList.add('negative-validation');
+
+});
+
+// const password = document.querySelector('#password');
+// password.addEventListener('blur', function(e) {
+//   console.log(password.value);
+// })
+
 

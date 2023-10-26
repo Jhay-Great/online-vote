@@ -10,21 +10,73 @@
   </head>
   <body>
     <div class="form-container">
+      <div class="form-title">
+        <a href="#sign-up" class="" > <h1>Sign In</h1> </a>
+        <a href="#log-in"> <h1>Log-In</h1> </a>
+      </div>
+      <!-- Form start -->
       <form action="">
-        <input type="text" placeholder="Name" required class="name" />
+        <div class="name-field form-fields">
+          <input type="text" placeholder="" required class="name" id="name" />
+          <label for="name"> Name </label>
+        </div>
 
-        <input type="email" placeholder="Email" required class="email" />
+        <div class="email-field form-fields">
+          <input id="email" type="email" placeholder="" required class="email" />
+          <label for="email">Email</label>
+        </div>
 
-        <textarea
+        <div class="nationality-field form-fields">
+          <input id="nationality" type="text" placeholder="" class="nationality">
+          <label for="nationality">Nationality</label>
+        </div>
+
+        <div class="password-field form-fields">
+          <input type="password" name="" id="password" placeholder="">
+          <label for="password">Password</label>
+        </div>
+        
+        <div class="confirm-password form-fields">
+          <input type="password" name="" id="confirm-password" placeholder="">
+          <label for="confirm-password">Confirm Password</label>
+        </div>
+
+        <!-- <input type="date" class="dob">
+
+        <label for="serial-numbers">Card number</label>
+
+        <label for="yes">Yes</label>
+        <input type="radio" name="card-number" id="yes" >
+        <label for="no">No</label>
+        <input type="radio" name="card-number" id="no" >
+
+        <input type="number" name="" id="" placeholder="Unique Serial Number"> -->
+
+        <!-- <textarea
           name=""
           id="description"
           cols="30"
           rows="10"
           placeholder="Describe the purpose of vote and what you want to achieve."
-        ></textarea>
+        ></textarea> -->
 
         <input type="submit" value="Submit" />
       </form>
+      <!-- Form end -->
+       
+      <!-- Other means to sign up -->
+      <div class="alternatives">
+        <div class="google_signup">
+          <button><span class="google-logo"></span>Google</button>
+        </div>
+        <div class="linkedIn_signup">
+          <button><span class="linkedIn-logo"></span>LinkedIn</button>
+        </div>
+        <div class="twitter_signup">
+          <button><span class="twitter-logo"></span>Twitter</button>
+        </div>
+      </div>
+      <!-- Other markups -->
       <div class="pop-up_container hidden">
         <p class="pop-up">Done. Thank you</p>
         <button class="okay-btn">Okay</button>
@@ -33,3 +85,6 @@
     <div class="overlay hidden"></div>
   </body>
 </html>
+
+
+<!-- By joining, you agree to the Fiverr Terms of Service and to occasionally receive emails from us. Please read our Privacy Policy to learn how we use your personal data. -->

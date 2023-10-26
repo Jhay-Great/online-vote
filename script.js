@@ -34,3 +34,15 @@ const optionObserver = {
 }
 const navObserver = new IntersectionObserver(callBackFn, optionObserver);
 navObserver.observe(header);
+
+// let page;
+// window.addEventListener('hashchange', function(e) {
+//     e.preventDefault();
+//     console.log(e.target.location.hash);
+//     page = e.target.location.hash;
+// })
+
+// window.addEventListener('load', function() {
+//     page;
+// })
+
