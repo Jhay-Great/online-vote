@@ -15,7 +15,8 @@ const validate = function(e) {
 
     if (e.target.value === '') {
         e.target.classList.add('negative-validation')
-        e.target.closest('.form-fields').querySelector('label').style.backgroundColor = 'transparent';
+        // e.target.closest('.form-fields').querySelector('label').style.backgroundColor = 'red';
+        e.target.closest('.form-fields').querySelector('label').classList.add('label-negative-validation');
     };
     if (e.target.value !== '') {
         e.target.classList.add('positive-validation')
@@ -64,6 +65,7 @@ okayBtn.addEventListener("click", function () {
 // });
 
 const getElement = function(e, id) {
+  // getting / selecting an element
   return e.target.closest('.form-fields').querySelector(id);
 }
 
@@ -73,6 +75,7 @@ form.addEventListener('blur', function(e) {
 
   // console.log(getElement(e, '.email'));
 
+  // EMAIL VALIDATION
   const email = e.target.closest('.form-fields').querySelector('.email');
   // console.log(email)
 
@@ -80,27 +83,37 @@ form.addEventListener('blur', function(e) {
     e.target.closest('.form-fields').querySelector('label').style.backgroundColor = 'green';
   };
   if (email && !email?.value.includes('@')) {
-    e.target.closest('.form-fields').querySelector('label').style.backgroundColor = 'red';
+    // e.target.closest('.form-fields').querySelector('label').style.backgroundColor = 'red';
+    e.target.closest('.form-fields').querySelector('label').classList.add('label-negative-validation');
   };
 
+  // NATIONALITY VALIDATION
+  if(e.target.closest('.form-fields').querySelector('.nationality')) {
+    validate(e);
+  }
 
+  // PASSWORD VALIDATION
   let password;
   if(e.target.closest('.form-fields').querySelector('#password')) {
     password = e.target.closest('.form-fields').querySelector('#password');
     console.log(password.value);
-  }
+    validate(e);
+  } 
+  
+  // CONFIRM PASSWORD
   if(e.target.closest('.form-fields').querySelector('#confirm-password')) {
     const confirmPassword = e.target.closest('.form-fields').querySelector('#confirm-password');
-    console.log(confirmPassword.value);
+    // console.log(confirmPassword.value);
 
-    console.log(password);
+    // console.log(password);
 
-    if (password.value === confirmPassword.value) {
+    if (password?.value === confirmPassword?.value) {
       // e.target.closest('.form-fields').querySelector('label').style.backgroundColor = 'green';
       console.log('pass')
     }
-    if (password.value !== confirmPassword.value) {
-      e.target.closest('.form-fields').querySelector('label').style.backgroundColor = 'red';
+    if (password?.value !== confirmPassword?.value) {
+      e.target.closest('.form-fields').querySelector('label').classList.add('label-negative-validation');
+      // e.target.closest('.form-fields').querySelector('label').style.backgroundColor = 'red';
       console.log('failed');
     }
   }
@@ -109,8 +122,6 @@ form.addEventListener('blur', function(e) {
   
 }, true);
 
-// console.log(window.getComputedStyle(document.querySelector('h1'), null));
-// console.log(document.styleSheets[1])
 
 
 
@@ -122,12 +133,21 @@ emailField.addEventListener('blur', function(e) {
 
   
   e.target.value.includes('@') ? e.target.classList.add('positive-validation') : e.target.classList.add('negative-validation');
-
+  
 });
+
+
+
+
+
+
+
 
 // const password = document.querySelector('#password');
 // password.addEventListener('blur', function(e) {
 //   console.log(password.value);
 // })
 
+// console.log(window.getComputedStyle(document.querySelector('h1'), null));
+// console.log(document.styleSheets[1])
 
