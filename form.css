@@ -178,12 +178,13 @@ input[type="submit"]:hover {
   margin: 2rem 0;
 }
 .acc-container {
-  border: 2px solid blueviolet;
+  border: 2px solid white;
   border-radius: 20px;
   display: flex;
   gap: 5px;
   width: fit-content;
   padding: 0.2rem 1rem;
+  cursor: pointer;
 }
 .acc {
   background-color: transparent;
@@ -199,6 +200,31 @@ input[type="submit"]:hover {
 }
 .acc-container > span > img {
   width: inherit;
+}
+
+/* Toggle styles */
+.toggle-container {
+  background: white;
+  width: 100%;
+  height: 80px;
+  font-weight: 600;
+  color: white;
+  text-transform: uppercase;
+
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  border-top-right-radius: 100px;
+  border-top-left-radius: 100px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+.toggle-container a {
+  text-decoration: none;
+  cursor: pointer;
 }
 
 /* CLASS LISTs */
