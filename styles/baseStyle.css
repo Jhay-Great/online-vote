@@ -1,0 +1,58 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+html {
+  box-sizing: border-box;
+  font-size: 15px;
+}
+body {
+  width: 100%;
+  font-family: sans-serif;
+  /* overflow: hidden; */
+}
+
+/* HEADER AND NAV STYLES */
+header  {
+  color: var(--font-color);
+  /* height: max(500px, 100vh); examine later*/
+  font-family: sans-serif;
+  /* height: 300px; */
+  border-bottom: 2px solid gray;
+}
+
+/* Nav bar */
+nav {
+  padding: 1rem 2rem;
+  height: 20%;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  background-color: blue;
+}
+nav > ul {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  /* width: 80%; examine later */
+  height: 100%;
+  /* margin: auto; */
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  text-align: center;
+}
+li {
+  list-style-type: none;
+  color: #000;
+  letter-spacing: 2px;
+  cursor: pointer;
+}
+
+/* GENERAL CLASSLIST STYLES */
+.sticky {
+  position: fixed;
+}

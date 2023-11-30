@@ -1,0 +1,203 @@
+
+/* GENERAL CLASSLIST STYLES
+.sticky {
+    position: absolute;
+} */
+
+/* ----------------------------------HEADER STYLES--------------------------------------- */
+header  {
+    color: var(--font-color);
+    height: max(500px, 100vh);
+    font-family: sans-serif;
+    /* height: 300px; */
+    border-bottom: 2px solid gray;
+}
+
+/* Nav bar */
+nav {
+    padding: 1rem 2rem;
+    height: 20%;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    background-color: blue;
+}
+nav > ul {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    width: 80%;
+    height: 100%;
+    /* margin: auto; */
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-align: center;
+}
+li {
+    list-style-type: none;
+    color: #000;
+    letter-spacing: 2px;
+    cursor: pointer;
+}
+
+/* Header Body styles */
+.header-body {
+    width: 100%;
+    height: 80%;
+    padding: 2rem;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    /* gap: 20px; */
+    flex-wrap: wrap;
+    /* background-color: red; */
+}
+h1 {
+    font-size: 4rem;
+    text-wrap: wrap;
+}
+.header-descriptions {
+    width: max(150px, 50%);
+    /* padding: 1rem 3rem; */
+    /* outline: 2px solid red; */
+}
+.header-descriptions p {
+    /* width: 80%; */
+    margin: 0 0 1rem;
+
+}
+a {
+    justify-self: center;
+    width: 50%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+}
+.sign-up {
+    width: 100%;
+    padding: .3rem;
+    background: transparent;
+    border: none;
+    /* text-decoration: underline; */
+    /* border-bottom: 2px solid darkslategray; */
+    font-size: .95rem;
+    font-weight: 700;
+    color: rgba(0, 0, 255, 0.452);
+    text-transform: uppercase;
+    letter-spacing: 1.6px;
+    cursor: pointer;
+    /* margin: 1rem auto; */
+}
+.sign-up:hover {
+    color: #fff;
+}
+
+/* LOGIN STYLES */
+.user-login {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: .8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* -----------------------------MAIN STYLES------------------------------------- */
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5rem 2rem 0;
+}
+.get-started,
+.about-us {
+    margin: 0 0 5rem;
+    width: 70%;
+}
+h2 {
+    font-size: 2.5rem;
+}
+
+/* -----------------------------------FOOTER STYLES-------------------------------- */
+footer {
+    width: 100%;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 2rem 0 0;
+}
+footer > section {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    height: 30%;
+}
+footer .contact-logo {
+    width: 2rem;
+    height: 3rem;
+    /* margin: auto; */
+}
+footer .contact-logo > img {
+    width: 100%;
+    cursor: pointer;
+}
+
+footer  p {
+    text-align: center;
+}
+
+
+/* ========================= MEDIA QUERY ======================== */
+
+/* MEDIA QUERY */
+@media screen and (max-width: 580px) {
+    nav > ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        gap: initial;
+        font-size: smaller;
+        padding: .5rem;
+        /* background-color: rgb(242, 174, 242); */
+    }
+    
+    .header-body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        /* justify-content: center; */
+        padding: 1rem;
+        /* height: 70vh; */
+        background-color: purple;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    /* nav > ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        gap: initial;
+        font-size: smaller;
+        padding: .5rem;
+        background-color: rgb(242, 174, 242);
+    } */
+
+    h1 {
+        font-size: 1.5rem;
+    }
+}
