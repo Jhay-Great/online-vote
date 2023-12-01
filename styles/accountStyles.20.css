@@ -267,12 +267,21 @@ main {
     grid-row: 3/4;
 
     padding: .5rem 1rem;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    /* justify-content: space-around; */
 }
 .vote_statistics {
     grid-column: 3/4;
     grid-row: 2/4;
 
     padding: .5rem 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 10px;
 }
 main > *:not(section:nth-of-type(1)) {
     border-radius: 10px;
@@ -284,13 +293,15 @@ main > *:not(section:nth-of-type(1)) {
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    margin: 0 0 .5rem;
 }
 .tab_container {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     gap: 5px;
-    height: 50px;
+    height: 40px;
     width: 150px;
     background-color: var(--bg-darker);
     border-radius: 40px;
@@ -298,11 +309,75 @@ main > *:not(section:nth-of-type(1)) {
 .tab_container > button {
     padding: 0 .5rem;
     border-radius: 40px;
-    height: 70%;
+    height: 90%;
 }
 .tab_container > button:hover {
     background-color: var(--bg-violet);
     color: var(--bg-white);
+}
+/* aspirants */
+.aspirants {
+    overflow-y: scroll;
+    max-height: 360px;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+/* aspirant accordion */
+.individual_aspirants {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
+
+    cursor: pointer;
+}
+.individual_aspirants img {
+    width: 50px;
+    height: 50px;
+
+    flex-basis: 50px;
+}
+.individual_aspirants .vote-options {
+    flex: 1 1;
+}
+.vote_statistics header {
+    padding: 0 0 1rem;
+    border-bottom: 1px solid var(--bg-darker);
+}
+.legend {
+    height: 150px;
+    padding: 1rem 0 0;
+    border-top: 1px solid var(--bg-darker);
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+}
+.aspirant_legend {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5px;
+    flex-wrap: wrap;
+}
+.aspirant_legend :nth-child(2)  {
+    flex: 4 1;
+}
+.aspirant_legend span {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 10px;
+    border: none;
+    background-color: transparent;
+}
+.digit {
+    flex: 1 1;
+    text-align: right;
 }
 
 
@@ -325,4 +400,5 @@ main > *:not(section:nth-of-type(1)) {
     font-weight: 600;
     color: var(--sub-title-font);
 }
+
 
