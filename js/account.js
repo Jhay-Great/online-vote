@@ -1,9 +1,12 @@
 'use strict'
 const dates = document.querySelectorAll('.date');
 const pollDurationLabel = document.querySelector('.date_commenced');
-const tabs = document.querySelector('.tab_container');
-const aspirantContainer = document.querySelector('.aspirants');
 const legends = document.querySelector('.legend');
+const votingPurpose = document.querySelector('.heading_sub > p > span');
+const allAspirants = document.querySelectorAll('.individual_aspirants');
+
+const aspirantContainer = document.querySelector('.aspirants');
+const tabs = document.querySelector('.tab_container');
 
 
 // Helper variables
@@ -20,34 +23,62 @@ const dateOptions = {
     }
 };
 
+
 // data
 const data = {
     pollDuration: 7,
     voters: 100,
+    purpose: 'SRC Delegates',
     aspirants: [
         {
             name: 'Kofi Yeboah',
             motto: 'Change like never before',
             tag: 'red',
             image: '../assets/red cube.jpg',
+            votes: 0,
         },
         {
             name: 'Mavis Agama',
             motto: 'Actualising freedom and justice',
             tag: 'blue',
             image: '../assets/red cube.jpg',
+            votes: 0,
         },
         {
             name: 'Moses Amegah',
             motto: 'Matching forward',
             tag: 'purple',
             image: '../assets/red cube.jpg',
+            votes: 0,
+        },
+        {
+            name: 'Yaw Kwansah',
+            motto: 'The people\'s joy',
+            tag: 'green',
+            image: '../assets/red cube.jpg',
+            votes: 0,
         },
     ],
     groupData: false,
-}
+};
+
 // Reading data
 const aspirants = data.aspirants;
+
+// active poll data
+// const pollData = [
+//     {
+//         name: 'asp name',
+//         tag: 'asp tag',
+//         votes: 0,
+//     }
+// ];
+
+// const h = {...aspirants};
+// console.log(h);
+// h[0].name = 'john Sowah'
+
+
 
 // displaying date in long and short date
 dates.forEach(date => {
@@ -66,6 +97,8 @@ dates.forEach(date => {
     !groupData && tabs?.remove();
 }) ();
 
+// displaying voting purpose or type
+votingPurpose.textContent = data.purpose;
 
 // displaying aspirant
 aspirants.forEach(aspirant => {
@@ -96,21 +129,21 @@ aspirants.forEach(aspirant => {
 })
 
 // displaying aspirants legend
-// legends.innerHTML = '';
 aspirants.forEach(aspirant => {
     const markup =`
     <div class="aspirant_legend">
         <span class="round_color"></span>
-        <p class="normal-bold">${aspirant.name}</p>
-        <p class="digit small-text">0</p>
+        <p class="normal-bold name">${aspirant.name}</p>
+        <p class="digit small-text">${aspirant.votes}</p>
     </div>
     `;
     legends.insertAdjacentHTML('afterbegin', markup);
     
     const colorTag = legends.querySelector('.round_color');
-    colorTag.style.backgroundColor = `${aspirant.tag}`
-    console.log(colorTag); 
+    colorTag.style.backgroundColor = `${aspirant.tag}`;
+    console.log(aspirant.votes);
 });
+
 
 
 // Event listeners
@@ -128,6 +161,28 @@ aspirantContainer.addEventListener('click', function(e) {
                 if(e.target.closest('.vote-options').querySelector('span')) return;
                 button.insertAdjacentHTML('afterend', markup);
 
+                const result = aspirants.filter(as => as.name === button.closest('.vote-options').querySelector('.aspirant-name').textContent);
+
+                result[0].votes++;
+                // checking and getting the aspirant legend
+                const aspirantLegend = document.querySelectorAll('.aspirant_legend');
+
+                aspirantLegend.forEach(aspirant => {
+                    const aspirantName = aspirant.querySelector('.name');
+                    const pollScore = aspirant.querySelector('.digit')
+
+                    if(aspirantName.textContent === result[0].name) pollScore.textContent++;
+                    
+
+                })
+                
+                // console.log(aspirantLegend.textContent === result[0].name);
+                // if(aspirantLegend.textContent === result[0].name)
+                document.querySelector('.digit').textContent
+
+
+
+                // console.log(result);
             };
             if(e.target.closest('.yes') !== button.closest('.yes')) button.remove();
         });
