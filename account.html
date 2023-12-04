@@ -8,6 +8,7 @@
   <script src="js/account.js" defer></script>
 </head>
 <body>
+  <!-- horizontal nav section -->
     <nav class="nav">
       <!-- input search box -->
       <section class="search-section">
@@ -34,11 +35,20 @@
       </section>
     </nav>
 
-    <!-- horizontal section -->
+    <!-- vertical nav section -->
     <section class="vertical-nav">
+      <button class="hamburger-menu_btn">
+        <div class="hamburger-container">
+          <div class="strokes"></div>
+          <div class="strokes"></div>
+          <div class="strokes"></div>
+        </div>
+      </button>
       <!-- application nav item section -->
       <section class="functional_navs">
-        <button class="logo"></button>
+        <button class="logo">
+          <!-- <img src="./assets/red cube.jpg" alt="webpage logo"> -->
+        </button>
         <div class="nav-items"></div>
       </section>
 
@@ -64,11 +74,11 @@
 
         <!-- date and sorting markup -->
         <section class="sorting_date">
-          <button class="sort">
+          <button class="sort" title="Sort">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M7 20h2V8h3L8 4 4 8h3zm13-4h-3V4h-2v12h-3l4 4z"/></svg>
             <span>Sort</span>
           </button>
-          <button class="calendar">
+          <button class="calendar" title="calendar">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 1V3H15V1H17V3H21C21.5523 3 22 3.44772 22 4V20C22 20.5523 21.5523 21 21 21H3C2.44772 21 2 20.5523 2 20V4C2 3.44772 2.44772 3 3 3H7V1H9ZM20 11H4V19H20V11ZM7 5H4V9H20V5H17V7H15V5H9V7H7V5Z"></path></svg>
             <span class="date">November, 2023</span>
           </button>
@@ -79,7 +89,7 @@
       <section class="users-statistics">
         <section class="time_limit bg-color">
           <header>
-            <p class="normal-bold">Duration / Time elapsed</p>
+            <h2 class="normal-bold">Duration / Time elapsed</h2>
             <p class="small-text">Statistics</p>
           </header>
 
@@ -92,7 +102,7 @@
         </section>
         <section class="user_activity bg-color">
           <header>
-            <p class="normal-bold">Voters</p>
+            <h2 class="normal-bold">Voters</h2>
             <p class="small-text">Statistics</p>
           </header>
           
@@ -108,7 +118,7 @@
       <section class="voting bg-color">
         <header>
           <div class="heading_sub">
-            <h2>Aspirants</h2>
+            <h2 class="normal-bold">Aspirants</h2>
             <p class="small-text">Voting - <span>Position</span></p>
           </div>
           <div class="tab_container">
@@ -168,11 +178,14 @@
       <!-- Voting statistics -->
       <section class="vote_statistics bg-color">
         <header>
-          <p class="normal-bold">Ongoing Poll Activity</p>
+          <h2 class="normal-bold">Ongoing Poll Activity</h2>
           <p class="small-text">Statistics</p>
         </header>
 
         <!-- graphical representation -->
+        <section class="visual_stats">
+          <p class="small-text">Visual Stats</p>
+        </section>
 
         <!-- activity legend -->
         <section class="legend">
