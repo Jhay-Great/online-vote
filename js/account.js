@@ -107,9 +107,9 @@ aspirants.forEach(aspirant => {
     `;
     legends.insertAdjacentHTML('afterbegin', markup);
     
-    const tag = legends.querySelector('.round_color');
-    tag.style.backgroundColor = `${aspirant.tag}`
-    console.log(tag); 
+    const colorTag = legends.querySelector('.round_color');
+    colorTag.style.backgroundColor = `${aspirant.tag}`
+    console.log(colorTag); 
 });
 
 
