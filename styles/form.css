@@ -1,4 +1,4 @@
-.form-container {
+.form-container { 
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -177,7 +177,7 @@ input[type="submit"]:hover {
   justify-items: center;
   margin: 2rem 0;
 }
-.acc-container {
+.accounts {
   border: 2px solid white;
   border-radius: 20px;
   display: flex;
@@ -194,11 +194,11 @@ input[type="submit"]:hover {
   width: 45px;
   /* padding: 0.5rem 0; */
 }
-.acc-container > span {
+.accounts > span {
   width: 20px;
   display: flex;
 }
-.acc-container > span > img {
+.accounts > span > img {
   width: inherit;
 }
 
