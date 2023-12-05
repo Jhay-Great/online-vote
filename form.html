@@ -3,18 +3,96 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Form</title>
+    <title>Form - Sign up</title>
     <link rel="stylesheet" href="./styles/baseStyle.css" />
     <link rel="stylesheet" href="./styles/form.css" />
     <script src="form.js" defer></script>
   </head>
   <body>
     <div class="form-container">
-      <div class="form-title">
-        <a href="#sign-up" class="" > <h1>Sign In</h1> </a>
-        <a href="#log-in" class="hidden"> <h1>Log-In</h1> </a>
+      <h1 class="heading">
+        Sign Up
+      </h1>
+      <form action="">
+        <!-- Name -->
+        <div class="name-field form-fields">
+          <input type="text" placeholder="" required class="name" id="name" />
+          <label for="name"> Name </label>
+        </div>
+        
+        <!-- Email -->
+        <div class="email-field form-fields">
+          <input type="email" name="Email-Address" id="email" required class="email" placeholder="">
+          <label for="email">Email</label>
+        </div>
+  
+        <!-- Password -->
+        <div class="password-field form-fields">
+          <input type="password" name="my-password" id="password" placeholder="" required>
+          <label for="password">Password</label>
+        </div>
+
+        <!-- Confirming password -->
+        <div class="confirm-password form-fields">
+          <input type="password" name="" id="confirm-password" placeholder="" required>
+          <label for="confirm-password">Confirm Password</label>
+        </div>
+  
+        <!-- password help -->
+        <a href="#" class="small-text password-help">Forgotten your password?</a>
+  
+        <input type="submit" value="Submit" class="submit-btn">
+      </form>
+  
+      <!-- alternative log -->
+      <div class="alternatives-accounts">
+        
+        <!-- Google btn with svg -->
+        <button class="accounts">
+          <span>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.06364 7.50914C4.70909 4.24092 8.09084 2 12 2C14.6954 2 16.959 2.99095 18.6909 4.60455L15.8227 7.47274C14.7864 6.48185 13.4681 5.97727 12 5.97727C9.39542 5.97727 7.19084 7.73637 6.40455 10.1C6.2045 10.7 6.09086 11.3409 6.09086 12C6.09086 12.6591 6.2045 13.3 6.40455 13.9C7.19084 16.2636 9.39542 18.0227 12 18.0227C13.3454 18.0227 14.4909 17.6682 15.3864 17.0682C16.4454 16.3591 17.15 15.3 17.3818 14.05H12V10.1818H21.4181C21.5364 10.8363 21.6 11.5182 21.6 12.2273C21.6 15.2727 20.5091 17.8363 18.6181 19.5773C16.9636 21.1046 14.7 22 12 22C8.09084 22 4.70909 19.7591 3.06364 16.4909C2.38638 15.1409 2 13.6136 2 12C2 10.3864 2.38638 8.85911 3.06364 7.50914Z"></path></svg>
+          </span>
+          <span>Google</span>
+        </button>
+  
+        <!-- LinkedIn btn with svg -->
+        <button  class="accounts">
+          <span>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18.3362 18.339H15.6707V14.1622C15.6707 13.1662 15.6505 11.8845 14.2817 11.8845C12.892 11.8845 12.6797 12.9683 12.6797 14.0887V18.339H10.0142V9.75H12.5747V10.9207H12.6092C12.967 10.2457 13.837 9.53325 15.1367 9.53325C17.8375 9.53325 18.337 11.3108 18.337 13.6245V18.339H18.3362ZM7.00373 8.57475C6.14573 8.57475 5.45648 7.88025 5.45648 7.026C5.45648 6.1725 6.14648 5.47875 7.00373 5.47875C7.85873 5.47875 8.55173 6.1725 8.55173 7.026C8.55173 7.88025 7.85798 8.57475 7.00373 8.57475ZM8.34023 18.339H5.66723V9.75H8.34023V18.339ZM19.6697 3H4.32923C3.59498 3 3.00098 3.5805 3.00098 4.29675V19.7033C3.00098 20.4202 3.59498 21 4.32923 21H19.6675C20.401 21 21.001 20.4202 21.001 19.7033V4.29675C21.001 3.5805 20.401 3 19.6675 3H19.6697Z"></path></svg>
+          </span>
+          <span>LinkedIn</span>
+        </button>
+  
+        <!-- Twitter btn with svg -->
+        <button  class="accounts">
+          <span>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22.2125 5.65605C21.4491 5.99375 20.6395 6.21555 19.8106 6.31411C20.6839 5.79132 21.3374 4.9689 21.6493 4.00005C20.8287 4.48761 19.9305 4.83077 18.9938 5.01461C18.2031 4.17106 17.098 3.69303 15.9418 3.69434C13.6326 3.69434 11.7597 5.56661 11.7597 7.87683C11.7597 8.20458 11.7973 8.52242 11.8676 8.82909C8.39047 8.65404 5.31007 6.99005 3.24678 4.45941C2.87529 5.09767 2.68005 5.82318 2.68104 6.56167C2.68104 8.01259 3.4196 9.29324 4.54149 10.043C3.87737 10.022 3.22788 9.84264 2.64718 9.51973C2.64654 9.5373 2.64654 9.55487 2.64654 9.57148C2.64654 11.5984 4.08819 13.2892 6.00199 13.6731C5.6428 13.7703 5.27232 13.8194 4.90022 13.8191C4.62997 13.8191 4.36771 13.7942 4.11279 13.7453C4.64531 15.4065 6.18886 16.6159 8.0196 16.6491C6.53813 17.8118 4.70869 18.4426 2.82543 18.4399C2.49212 18.4402 2.15909 18.4205 1.82812 18.3811C3.74004 19.6102 5.96552 20.2625 8.23842 20.2601C15.9316 20.2601 20.138 13.8875 20.138 8.36111C20.138 8.1803 20.1336 7.99886 20.1256 7.81997C20.9443 7.22845 21.651 6.49567 22.2125 5.65605Z"></path></svg>
+          </span>
+          <span>Twitter</span>
+        </button>
       </div>
-      <!-- Form start -->
+  
+      <!-- switching to sign in -->
+      <div class="sign-in other-features">
+        <p class="small-text">Already have an account?</p>
+        <button>
+          <a href="logIn.html">Login</a>
+        </button>
+      </div>
+    </div>
+
+    <!-- Other markups -->
+      <div class="pop-up_container hidden">
+        <p class="pop-up">Done. Thank you</p>
+        <button class="okay-btn">Okay</button>
+      </div>
+
+
+    <!--<div class="form-container">
+      <div class="form-title">
+        <h1>Sign In</h1>
+      </div>
+      <!-- Form start 
       <form action="">
         <div class="name-field form-fields">
           <input type="text" placeholder="" required class="name" id="name" />
@@ -50,7 +128,7 @@
         <label for="no">No</label>
         <input type="radio" name="card-number" id="no" >
 
-        <input type="number" name="" id="" placeholder="Unique Serial Number"> -->
+        <input type="number" name="" id="" placeholder="Unique Serial Number"> 
 
         <!-- <textarea
           name=""
@@ -58,57 +136,58 @@
           cols="30"
           rows="10"
           placeholder="Describe the purpose of vote and what you want to achieve."
-        ></textarea> -->
+        ></textarea> 
 
         <input type="submit" value="Submit" />
         
-        <!-- Other means to sign up / alternative accounts -->
+        <!-- Other means to sign up / alternative accounts 
         <div class="alternatives-accounts">
-          <div class="google_signup acc-container">
-          <span class="google-logo">
-            <img src="./assets/google-fill.svg" alt="google-logo">
-          </span>
-          <button class="acc">Google</button>
-        </div>
-        <div class="linkedIn_signup acc-container">
-          <span class="linkedIn-logo">
-            <img src="./assets/linkedin-box-fill.svg" alt="">
-          </span>
-          <button class="acc">LinkedIn</button>
-        </div>
-        <div class="twitter_signup acc-container">
-          <span class="twitter-logo">
-            <img src="./assets/twitter-x-fill.svg" alt="">
-          </span>
-          <button class="acc">Twitter</button>
+          <div class="google_signup accounts">
+            <span class="google-logo">
+              <img src="./assets/google-fill.svg" alt="google-logo">
+            </span>
+            <button class="acc">Google</button>
+          </div>
+          <div class="linkedIn_signup accounts">
+            <span class="linkedIn-logo">
+              <img src="./assets/linkedin-box-fill.svg" alt="">
+            </span>
+            <button class="acc">LinkedIn</button>
+          </div>
+          <div class="twitter_signup accounts">
+            <span class="twitter-logo">
+              <img src="./assets/twitter-x-fill.svg" alt="">
+            </span>
+            <button class="acc">Twitter</button>
+          </div>
         </div>
       </form>
       
-      <!-- Toggle login / sign up -->
+      <!-- Toggle login / sign up 
       <!-- <div class="custom-shape-divider-top-1689986374">
       <div>
         <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-            <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+          <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
         </svg>
-      </div> -->
-      <!-- changing between sign up and login -->
+      </div> 
+      <!-- changing between sign up and login 
       <div class="toggle-container">
-        <a href="#">Log in</a>
+        <a href="logIn.html">Log in</a>
         <a href="#" class="hidden">Sign up</a>
       </div>
       
-      <!-- Other markups -->
+      <!-- Other markups 
       <div class="pop-up_container hidden">
         <p class="pop-up">Done. Thank you</p>
         <button class="okay-btn">Okay</button>
       </div>
     </div>
-  <!-- Form end -->
+  <!-- Form end 
   
-    <!-- Overlay -->
-    <div class="overlay hidden"></div>
+    <!-- Overlay 
+    <div class="overlay hidden"></div> -->
   </body>
 </html>
 
 
-<!-- By joining, you agree to the Fiverr Terms of Service and to occasionally receive emails from us. Please read our Privacy Policy to learn how we use your personal data. -->
+<!-- By joining, you agree to the Fiverr Terms of Service and to occasionally receive emails from us. Please read our Privacy Policy to learn how we use your personal data. 

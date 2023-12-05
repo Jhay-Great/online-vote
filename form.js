@@ -8,6 +8,10 @@ const nameField = document.querySelector('.name');
 const emailField = document.querySelector('.email');
 // const description = document.getElementById('.description');
 
+
+// helper variables
+let password;
+
 // Helper Functions
 const validate = function(e) {
     // remove classList if any
@@ -73,11 +77,9 @@ const getElement = function(e, id) {
 form.addEventListener('blur', function(e) {
   if(!e.target.closest('.form-fields')) return;
 
-  // console.log(getElement(e, '.email'));
 
   // EMAIL VALIDATION
   const email = e.target.closest('.form-fields').querySelector('.email');
-  // console.log(email)
 
   if(email && email?.value.includes('@')) {
     e.target.closest('.form-fields').querySelector('label').style.backgroundColor = 'green';
@@ -87,13 +89,9 @@ form.addEventListener('blur', function(e) {
     e.target.closest('.form-fields').querySelector('label').classList.add('label-negative-validation');
   };
 
-  // NATIONALITY VALIDATION
-  if(e.target.closest('.form-fields').querySelector('.nationality')) {
-    validate(e);
-  }
 
   // PASSWORD VALIDATION
-  let password;
+
   if(e.target.closest('.form-fields').querySelector('#password')) {
     password = e.target.closest('.form-fields').querySelector('#password');
     console.log(password.value);
@@ -105,16 +103,16 @@ form.addEventListener('blur', function(e) {
     const confirmPassword = e.target.closest('.form-fields').querySelector('#confirm-password');
     // console.log(confirmPassword.value);
 
-    // console.log(password);
+    console.log(password.value, confirmPassword.value);
 
     if (password?.value === confirmPassword?.value) {
       // e.target.closest('.form-fields').querySelector('label').style.backgroundColor = 'green';
-      console.log('pass')
+      console.log('correct password')
     }
     if (password?.value !== confirmPassword?.value) {
       e.target.closest('.form-fields').querySelector('label').classList.add('label-negative-validation');
       // e.target.closest('.form-fields').querySelector('label').style.backgroundColor = 'red';
-      console.log('failed');
+      console.log('incorrect password');
     }
   }
 
