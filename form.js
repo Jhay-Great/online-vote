@@ -11,8 +11,11 @@ const emailField = document.querySelector('.email');
 
 // helper variables
 let password;
+const symbol = ['!', '@', '#', '$', '%', '^', '&', '*', '_', '-', '=', '+'];
 
 // Helper Functions
+
+// input validation
 const validate = function(e) {
     // remove classList if any
     e.target.classList.remove('negative-validation');
@@ -38,11 +41,26 @@ const formReset = function(e) {
   })
 }
 
+// validating password only
+const validatePassword = function(e) {
+  if(!e.target.closest('.form-fields').querySelector('#password')) return;
+
+  // if input value is 8 digit or more and contains a symbol and a capital letter
+  if(e.target.value.length >= 8) {
+    const val = symbol.some(sym => e.target.value.includes(sym));
+    const res = val || e.target.value.split(',').some(letter => letter.includes(letter.toUpperCase()));
+    res ? console.log('w') : console.log('f');
+    // console.log(e.target.value);
+  }
+}
+
+
+
+// Event listeners
 window.addEventListener('load', function() {
   nameField.focus();
 })
 
-// Event listeners
 form.addEventListener("submit", function (e) {
   e.preventDefault();
 
@@ -91,10 +109,9 @@ form.addEventListener('blur', function(e) {
 
 
   // PASSWORD VALIDATION
-
-  if(e.target.closest('.form-fields').querySelector('#password')) {
+  if(e.target.closest('.form-fields').querySelector('#password') && e.target.closest('.form-fields').querySelector('#password').value.length > 8) {
     password = e.target.closest('.form-fields').querySelector('#password');
-    console.log(password.value);
+    // console.log(password?.value);
     validate(e);
   } 
   
@@ -103,7 +120,7 @@ form.addEventListener('blur', function(e) {
     const confirmPassword = e.target.closest('.form-fields').querySelector('#confirm-password');
     // console.log(confirmPassword.value);
 
-    console.log(password.value, confirmPassword.value);
+    // console.log(password?.value, confirmPassword?.value);
 
     if (password?.value === confirmPassword?.value) {
       // e.target.closest('.form-fields').querySelector('label').style.backgroundColor = 'green';
@@ -115,12 +132,8 @@ form.addEventListener('blur', function(e) {
       console.log('incorrect password');
     }
   }
-
-
   
 }, true);
-
-
 
 
 nameField.addEventListener('blur', validate);
@@ -135,8 +148,17 @@ emailField.addEventListener('blur', function(e) {
 });
 
 
+// password validation event
+form.addEventListener('change', validatePassword);
 
 
+
+/**To do
+ * Redirection to the user dashboard
+ * store name, email and password in the browser's session storage
+ * display name on dashboard and while dashboard is loading to imitate loading from the serve side
+ * read email and password during login.
+ */
 
 
 

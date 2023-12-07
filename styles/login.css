@@ -21,12 +21,13 @@ body {
 .form-container {
   width: 60%;
   width: min(max(300px, 60vw), 600px);
-  height: 90%;
-  padding: 1rem 2rem;
+  height: fit-content;
+  padding: 2rem;
   border-radius: 20px;
 
   display: flex;
   flex-direction: column;
+  justify-content: center;
 
   background-color: color-mix(in srgb, rgb(0, 0, 0) 20%, transparent);
   /* backdrop-filter: blur(80px); */
@@ -46,7 +47,7 @@ input:not(input[type="submit"]) {
     background-color: transparent;
 }
 .form-fields:first-child {
-    margin: 3rem 0 1rem;
+    margin: 2rem 0 1rem;
 }
 .form-fields > label {
     position: absolute;
@@ -56,6 +57,20 @@ input:not(input[type="submit"]) {
   
     transition: all 600ms;
 }
+
+/* password input section */
+.password {
+    position: relative;
+}
+.visible {
+    position: absolute;
+    bottom: 30%;
+    right: 20px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
 /* forgotten password link styles */
 .password-help {
     display: block;
@@ -70,12 +85,14 @@ input:not(input[type="submit"]) {
     margin: 2rem 0 0;
     height: 40px;
     color: black;
+    outline: none;
+    border: none;
     border-radius: 20px;
     border-bottom: none;
     box-shadow: 0px 2px;
     background: linear-gradient(to left, white 50%, green 50%) right;
     background-size: 200% 100%;
-
+  
     transition: all 300ms ease;
 }
 .submit-btn:hover {
@@ -91,9 +108,9 @@ input:not(input[type="submit"]) {
 /* login with alternative accounts */
 .alternatives-accounts {
     width: 100%;
-    height: 40px;
+    height: fit-content;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
     justify-items: center;
     gap: 10px;
 
@@ -101,6 +118,7 @@ input:not(input[type="submit"]) {
 }
 .accounts {
     width: 70%;
+    height: 40px;
     padding: 0 0.5rem;
     cursor: pointer;
     font-weight: 600;
