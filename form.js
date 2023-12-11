@@ -78,13 +78,6 @@ document.addEventListener('click', function(e) {
 
   inputContainer.getAttribute('type') !== 'text' ? inputContainer.setAttribute('type', 'text') : inputContainer.setAttribute('type', 'password');
 
-  // if(inputContainer.getAttribute('type') === 'password') {
-  //   inputContainer.setAttribute('type', 'text');
-  //   return;
-  // }
-  
-  // inputContainer.setAttribute('type', 'password');
-  
 })
 
 
@@ -96,23 +89,8 @@ window.addEventListener('load', function() {
 form.addEventListener("submit", function (e) {
   e.preventDefault();
 
-  // console.log(document.querySelectorAll('input:not(input[type="submit"]'))
-  // console.log(document.querySelector('input[type="text"]'))
-
-  if (document.querySelectorAll('input:not(input[type="submit"]').forEach(el => el !== '') && (document.querySelector('#password').value === document.querySelector('#confirm-password').value)) {
-    // localStorage.setItem('name', document.querySelector('input[type="text"]').value);
-    // localStorage.setItem('password', document.querySelector('#password').value);
-    console.log('w');    
-
-  };
-
-
-  // if(document.querySelectorAll('input:not(input[type="submit"]'))
-
   popUp.classList.remove("hidden");
-  // overlay.classList.remove("hidden");
-
-  formReset([nameField, emailField]);
+  overlay.classList.remove("hidden");
 
 });
 // localStorage.clear();
@@ -120,8 +98,28 @@ form.addEventListener("submit", function (e) {
 // Okay btn event to confirm submission
 okayBtn.addEventListener("click", function () {
   popUp.classList.add("hidden");
-  // overlay.classList.add("hidden");
+  overlay.classList.add("hidden");
+
+  localStorage.setItem('email', document.querySelector('.email').value);
+  localStorage.setItem('password', document.querySelector('#password').value)
+  const name = localStorage.setItem('name', document.querySelector('#name').value);
+  console.log(name);
+
+  formReset([nameField, emailField]);
+
+  const animation = document.querySelector('.animation_container');
+  console.log(animation);
+  animation.classList.remove('hidden');
+
+  setTimeout(() => {
+      animation.classList.add('hidden');
+      location.href = 'account.html';
+      // location.replace('account.html');
+      
+  }, 3000);
+  
 });
+
 // Keyboard event listener for 'Okay btn'
 // document.addEventListener("keydown", function (e) {
 //   e.preventDefault();

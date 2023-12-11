@@ -4,6 +4,7 @@ const pollDurationLabel = document.querySelector('.date_commenced');
 const legends = document.querySelector('.legend');
 const votingPurpose = document.querySelector('.heading_sub > p > span');
 const allAspirants = document.querySelectorAll('.individual_aspirants');
+const pageControls = document.querySelector('.page-control_navs');
 
 const aspirantContainer = document.querySelector('.aspirants');
 const tabs = document.querySelector('.tab_container');
@@ -141,7 +142,6 @@ aspirants.forEach(aspirant => {
     
     const colorTag = legends.querySelector('.round_color');
     colorTag.style.backgroundColor = `${aspirant.tag}`;
-    console.log(aspirant.votes);
 });
 
 
@@ -156,6 +156,9 @@ aspirantContainer.addEventListener('click', function(e) {
                 button.classList.add('vetted');
                 const chosenDelegate = button.parentElement.firstElementChild.textContent;
                 const markup = `<span class="small-text">You voted for ${chosenDelegate} </span>`;
+
+                // saving data
+                localStorage.setItem('aspirant', button.parentElement.firstElementChild.textContent)
 
                 // preventing repeated insertions to the page
                 if(e.target.closest('.vote-options').querySelector('span')) return;
@@ -173,6 +176,7 @@ aspirantContainer.addEventListener('click', function(e) {
 
                     if(aspirantName.textContent === result[0].name) pollScore.textContent++;
                     
+                    localStorage.setItem('vote', 1);
 
                 })
                 
@@ -189,6 +193,42 @@ aspirantContainer.addEventListener('click', function(e) {
     }
 })
 
+// when page first loads
+document.addEventListener('DOMContentLoaded', function() {
+    const {name, aspirant: chosenAspirant, vote} = localStorage;
+    const profileID = name.slice(0, 2);
+
+    document.querySelector('.profile-image').textContent = profileID;
+
+    if(!localStorage.getItem('aspirant') && !localStorage.getItem('vote')) return;
+
+    document.querySelectorAll('.individual_aspirants').forEach(aspirant => {
+        if(aspirant.querySelector('.aspirant-name').textContent === chosenAspirant) {
+            aspirant.querySelector('button').classList.add('vetted');
+        }
+        if(aspirant.querySelector('.aspirant-name').textContent !== chosenAspirant) {
+            aspirant.querySelector('button').remove();
+        }
+    })
+    
+    document.querySelectorAll('.aspirant_legend').forEach(aspirant => {
+        if (aspirant.querySelector('.name').textContent === chosenAspirant) {
+            aspirant.querySelector('.digit').textContent = vote;
+        }
+        
+    })
+    
+})
+
+// log out and dark mode
+pageControls.addEventListener('click', function(e) {
+    if(e.target.closest('.log-out')) {
+        location.replace('/login.html');
+        // localStorage.clear();
+    };
+})
+
+// localStorage.removeItem('aspirant');
 
 
 
