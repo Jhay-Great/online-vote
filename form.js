@@ -6,6 +6,7 @@ const overlay = document.querySelector(".overlay");
 const okayBtn = document.querySelector(".okay-btn");
 const nameField = document.querySelector('.name');
 const emailField = document.querySelector('.email');
+const visibility = document.querySelectorAll('.visible');
 // const description = document.getElementById('.description');
 
 
@@ -23,11 +24,11 @@ const validate = function(e) {
     if (e.target.value === '') {
         e.target.classList.add('negative-validation')
         // e.target.closest('.form-fields').querySelector('label').style.backgroundColor = 'red';
-        e.target.closest('.form-fields').querySelector('label').classList.add('label-negative-validation');
+        // e.target.closest('.form-fields').querySelector('label').classList.add('label-negative-validation');
     };
     if (e.target.value !== '') {
         e.target.classList.add('positive-validation')
-        e.target.closest('.form-fields').querySelector('label').style.backgroundColor = 'green';
+        // e.target.closest('.form-fields').querySelector('label').style.backgroundColor = 'green';
     }
     // console.log(e.target.value)
     
@@ -47,16 +48,47 @@ const validatePassword = function(e) {
 
   // if input value is 8 digit or more and contains a symbol and a capital letter
   if(e.target.value.length >= 8) {
-    const val = symbol.some(sym => e.target.value.includes(sym));
-    const res = val || e.target.value.split(',').some(letter => letter.includes(letter.toUpperCase()));
-    res ? console.log('w') : console.log('f');
+    const containsSymbol = symbol.some(sym => e.target.value.includes(sym));
+    const containsCap = containsSymbol || e.target.value.split(',').some(letter => letter.includes(letter.toUpperCase()));
+    containsCap ? console.log('w') : console.log('f');
+    validate(e)
     // console.log(e.target.value);
   }
+  // if(e.target.value.length >= 8) {
+  //   const val = symbol.some(sym => e.target.value.includes(sym));
+  //   const res = val || e.target.value.split(',').some(letter => letter.includes(letter.toUpperCase()));
+  //   res ? console.log('w') : console.log('f');
+  //   // console.log(e.target.value);
+  // }
 }
 
 
 
+
+
 // Event listeners
+
+// making password visible
+document.addEventListener('click', function(e) {
+  if(!e.target.closest('.visible')) return;
+  e.preventDefault();
+
+  console.log('visible');
+  const inputContainer = e.target.closest('.visible').parentElement.querySelector('input');
+
+  inputContainer.getAttribute('type') !== 'text' ? inputContainer.setAttribute('type', 'text') : inputContainer.setAttribute('type', 'password');
+
+  // if(inputContainer.getAttribute('type') === 'password') {
+  //   inputContainer.setAttribute('type', 'text');
+  //   return;
+  // }
+  
+  // inputContainer.setAttribute('type', 'password');
+  
+})
+
+
+
 window.addEventListener('load', function() {
   nameField.focus();
 })
@@ -64,23 +96,36 @@ window.addEventListener('load', function() {
 form.addEventListener("submit", function (e) {
   e.preventDefault();
 
+  // console.log(document.querySelectorAll('input:not(input[type="submit"]'))
+  // console.log(document.querySelector('input[type="text"]'))
+
+  if (document.querySelectorAll('input:not(input[type="submit"]').forEach(el => el !== '') && (document.querySelector('#password').value === document.querySelector('#confirm-password').value)) {
+    // localStorage.setItem('name', document.querySelector('input[type="text"]').value);
+    // localStorage.setItem('password', document.querySelector('#password').value);
+    console.log('w');    
+
+  };
+
+
+  // if(document.querySelectorAll('input:not(input[type="submit"]'))
+
   popUp.classList.remove("hidden");
-  overlay.classList.remove("hidden");
+  // overlay.classList.remove("hidden");
 
   formReset([nameField, emailField]);
 
 });
+// localStorage.clear();
 
 // Okay btn event to confirm submission
 okayBtn.addEventListener("click", function () {
   popUp.classList.add("hidden");
-  overlay.classList.add("hidden");
+  // overlay.classList.add("hidden");
 });
 // Keyboard event listener for 'Okay btn'
 // document.addEventListener("keydown", function (e) {
 //   e.preventDefault();
 //   if (!e.key === "Enter") return;
-//   console.log(e.key);
 
 //   popUp.classList.add("hidden");
 //   overlay.classList.add("hidden");
@@ -125,6 +170,9 @@ form.addEventListener('blur', function(e) {
     if (password?.value === confirmPassword?.value) {
       // e.target.closest('.form-fields').querySelector('label').style.backgroundColor = 'green';
       console.log('correct password')
+      sessionStorage.setItem('password', password?.value);
+      console.log(sessionStorage.getItem('password'));
+
     }
     if (password?.value !== confirmPassword?.value) {
       e.target.closest('.form-fields').querySelector('label').classList.add('label-negative-validation');
@@ -134,6 +182,8 @@ form.addEventListener('blur', function(e) {
   }
   
 }, true);
+
+// sessionStorage.clear();
 
 
 nameField.addEventListener('blur', validate);
