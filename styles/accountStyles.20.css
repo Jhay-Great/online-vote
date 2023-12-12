@@ -152,7 +152,7 @@ svg {
     justify-content: space-between;
     align-items: center;
 
-    padding: 1rem;
+    padding: 1rem 0;
     width: 48px;
     height: 100%;
     background-color: var(--bg-white);
@@ -160,7 +160,17 @@ svg {
 }
 .logo {
     width: 100%;
-    height: 50px;
+    height: 40px;
+    cursor: pointer;
+
+    display: flex;
+    justify-content: center;
+}
+.logo img {
+    width: 90%;
+    height: 90%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
 }
 .functional_navs {
     height: 481px;
@@ -185,7 +195,7 @@ button {
     border: none;
     cursor: pointer;
 }
-.functional_navs,
+/* .functional_navs .logo, */
 .page-control_navs svg {
     width: 30px;
     height: 30px;
