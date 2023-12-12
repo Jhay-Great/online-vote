@@ -228,17 +228,9 @@ pageControls.addEventListener('click', function(e) {
     };
 })
 
-// localStorage.removeItem('aspirant');
 
 
-
-// console.log({aspirantLegends});
 
 /**
- * date should be display the current date and time 
- * specify time and duration of each poll
  * 
- * when aspirant is voted for the other button is highlighted
- * all other buttons are disabled
- * an indication in text showing user voted for a specific aspirant
  */
