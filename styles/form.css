@@ -81,7 +81,7 @@ input:not(input[type="submit"]) {
   /* border-bottom: 2px solid blue; */
   display: block;
   line-height: 3rem;
-  margin: 0 0 1rem;
+  margin: 0 0 2rem;
   background-color: transparent;
   color: #fff;
 }
@@ -124,7 +124,8 @@ input:not(:placeholder-shown) ~ label {
   display: block;
   cursor: pointer;
 
-  margin: 2rem 0 0;
+  /* margin: 2rem 0 0; */
+  width: fit-content;
 }
 
 /* submit btn */
@@ -392,7 +393,11 @@ svg {
 
   transition: background-color, 600ms ease-in;
 }
-
+.ab {
+  position: absolute;
+  bottom: -17px;
+  right: 0;
+}
 
 
 

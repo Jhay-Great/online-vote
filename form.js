@@ -62,6 +62,24 @@ const validatePassword = function(e) {
   // }
 }
 
+const handleVisibility = function(container, key='type', value='password') {
+
+  const visible = container.parentElement.querySelector('.visible');
+  const invisible = container.parentElement.querySelector('.invisible');
+
+  if(value ==='password') {
+    visible.classList.remove('hidden');
+    invisible.classList.add('hidden');
+  }
+  if(value !== 'password') {
+    visible.classList.add('hidden');
+    invisible.classList.remove('hidden');
+  }
+
+  container.setAttribute(key, value);
+  
+}
+
 
 
 
@@ -73,13 +91,11 @@ document.addEventListener('click', function(e) {
   if(!e.target.closest('.visibility-btn')) return;
   e.preventDefault();
 
-  console.log(e.target.closest('svg'));
-  if(e.target.closest('svg').classList.contains('hidden'))
-
-  console.log('visibility-btn');
   const inputContainer = e.target.closest('.visibility-btn').parentElement.querySelector('input');
 
-  inputContainer.getAttribute('type') !== 'text' ? inputContainer.setAttribute('type', 'text') : inputContainer.setAttribute('type', 'password');
+  // inputContainer.getAttribute('type') !== 'text' ? inputContainer.setAttribute('type', 'text') : inputContainer.setAttribute('type', 'password');
+
+  inputContainer.getAttribute('type') !== 'text' ? handleVisibility(inputContainer, 'type', 'text') : handleVisibility(inputContainer,'type', 'password');
 
 })
 

@@ -1,8 +1,30 @@
 'use strict'
 
 const form = document.querySelector('form');
-console.log(form);
+const password = document.querySelector('.password');
 
+
+// functionality
+const handleVisibility = function(container, key='type', value='password') {
+
+    const visible = container.parentElement.querySelector('.visible');
+    const invisible = container.parentElement.querySelector('.invisible');
+
+    if(value ==='password') {
+    visible.classList.remove('hidden');
+    invisible.classList.add('hidden');
+    }
+    if(value !== 'password') {
+    visible.classList.add('hidden');
+    invisible.classList.remove('hidden');
+    }
+
+    container.setAttribute(key, value);
+    
+}
+
+
+// Event listeners
 form.addEventListener('submit', function(e) {
     e.preventDefault();
 
@@ -14,10 +36,26 @@ form.addEventListener('submit', function(e) {
     const userEmail = localStorage.getItem('email');
     const userPassword = localStorage.getItem('password');
 
-    (isEmail === userEmail) && (isPassword === userPassword) ? location.replace('account.html') : console.log('incorrect data');
+    const markup = `<p class="small-text ab">Incorrect data entry</p>`;
+
+    (isEmail === userEmail) && (isPassword === userPassword) ? location.replace('account.html') : password.insertAdjacentHTML('beforeend', markup);
 
 
     
     // location.replace('account.html');
 })
 
+
+// making password visible
+document.addEventListener('click', function(e) {
+if(!e.target.closest('.visibility-btn')) return;
+e.preventDefault();
+
+const inputContainer = e.target.closest('.visibility-btn').parentElement.querySelector('input');
+
+// inputContainer.getAttribute('type') !== 'text' ? inputContainer.setAttribute('type', 'text') : inputContainer.setAttribute('type', 'password');
+
+inputContainer.getAttribute('type') !== 'text' ? handleVisibility(inputContainer, 'type', 'text') : handleVisibility(inputContainer,'type', 'password');
+
+})
+  
