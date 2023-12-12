@@ -6,7 +6,7 @@ const overlay = document.querySelector(".overlay");
 const okayBtn = document.querySelector(".okay-btn");
 const nameField = document.querySelector('.name');
 const emailField = document.querySelector('.email');
-const visibility = document.querySelectorAll('.visible');
+const visibility = document.querySelectorAll('.visibility-btn');
 // const description = document.getElementById('.description');
 
 
@@ -70,11 +70,14 @@ const validatePassword = function(e) {
 
 // making password visible
 document.addEventListener('click', function(e) {
-  if(!e.target.closest('.visible')) return;
+  if(!e.target.closest('.visibility-btn')) return;
   e.preventDefault();
 
-  console.log('visible');
-  const inputContainer = e.target.closest('.visible').parentElement.querySelector('input');
+  console.log(e.target.closest('svg'));
+  if(e.target.closest('svg').classList.contains('hidden'))
+
+  console.log('visibility-btn');
+  const inputContainer = e.target.closest('.visibility-btn').parentElement.querySelector('input');
 
   inputContainer.getAttribute('type') !== 'text' ? inputContainer.setAttribute('type', 'text') : inputContainer.setAttribute('type', 'password');
 

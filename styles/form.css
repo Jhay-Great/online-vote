@@ -110,7 +110,7 @@ input:not(:placeholder-shown) ~ label {
 .password {
   position: relative;
 }
-.visible {
+.visibility-btn {
   position: absolute;
   bottom: 30%;
   right: 20px;
