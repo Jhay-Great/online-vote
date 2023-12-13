@@ -223,8 +223,8 @@ document.addEventListener('DOMContentLoaded', function() {
 // log out and dark mode
 pageControls.addEventListener('click', function(e) {
     if(e.target.closest('.log-out')) {
-        location.replace('/login.html');
-        // localStorage.clear();
+        location.href = ('/logoutChoice.html');
+        // location.replace('/login.html');
     };
 })
 
