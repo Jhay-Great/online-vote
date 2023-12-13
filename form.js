@@ -43,8 +43,11 @@ const formReset = function(e) {
 }
 
 // validating password only
+// does not have effect on the ui for now - TBD
 const validatePassword = function(e) {
+  
   if(!e.target.closest('.form-fields').querySelector('#password')) return;
+  console.log('working');
 
   // if input value is 8 digit or more and contains a symbol and a capital letter
   if(e.target.value.length >= 8) {
@@ -105,13 +108,13 @@ window.addEventListener('load', function() {
   nameField.focus();
 })
 
-form.addEventListener("submit", function (e) {
-  e.preventDefault();
+// form.addEventListener("submit", function (e) {
+//   e.preventDefault();
 
-  popUp.classList.remove("hidden");
-  overlay.classList.remove("hidden");
+//   // popUp.classList.remove("hidden");
+//   // overlay.classList.remove("hidden");
 
-});
+// });
 // localStorage.clear();
 
 // Okay btn event to confirm submission
@@ -122,7 +125,7 @@ okayBtn.addEventListener("click", function () {
   localStorage.setItem('email', document.querySelector('.email').value);
   localStorage.setItem('password', document.querySelector('#password').value)
   const name = localStorage.setItem('name', document.querySelector('#name').value);
-  console.log(name);
+  // console.log(name);
 
   formReset([nameField, emailField]);
 
@@ -133,7 +136,7 @@ okayBtn.addEventListener("click", function () {
   setTimeout(() => {
       animation.classList.add('hidden');
       // location.href = 'account.html';
-      // location.replace('account.html');
+      location.replace('account.html');
       
   }, 3000);
   
@@ -174,7 +177,26 @@ form.addEventListener('blur', function(e) {
   if(e.target.closest('.form-fields').querySelector('#password') && e.target.closest('.form-fields').querySelector('#password').value.length > 8) {
     password = e.target.closest('.form-fields').querySelector('#password');
     // console.log(password?.value);
-    validate(e);
+    // validate(e);
+
+    // console.log(e.target.parentElement.querySelector('.ab'));
+    if(e.target.parentElement.querySelector('.ab')) e.target.parentElement.querySelector('.ab').remove();
+    e.target.closest('.form-fields').querySelector('label').style.backgroundColor = 'green';
+    // validate(e);
+  } 
+
+  // when password is less than 8 characters
+  if(e.target.closest('.form-fields').querySelector('#password') && e.target.closest('.form-fields').querySelector('#password').value.length < 8) {
+    const markup  = `<p class="small-text ab ">Password should be at least 8 characters long.</p>`;
+
+    if (!e.target.parentElement.querySelector('.ab')) {
+      e.target.parentElement.insertAdjacentHTML('beforeend', markup);
+      e.target.closest('.form-fields').querySelector('label').style.backgroundColor = 'red';
+    }
+
+    // password = e.target.closest('.form-fields').querySelector('#password');
+    // console.log(password?.value);
+    // validate(e);
   } 
   
   // CONFIRM PASSWORD
@@ -185,16 +207,38 @@ form.addEventListener('blur', function(e) {
     // console.log(password?.value, confirmPassword?.value);
 
     if (password?.value === confirmPassword?.value) {
-      // e.target.closest('.form-fields').querySelector('label').style.backgroundColor = 'green';
-      console.log('correct password')
+      e.target.closest('.form-fields').querySelector('label').style.backgroundColor = 'green';
+      // console.log('correct password')
       sessionStorage.setItem('password', password?.value);
-      console.log(sessionStorage.getItem('password'));
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+      
+        popUp.classList.remove("hidden");
+        overlay.classList.remove("hidden");
+      
+      });
+
+      if(e.target.parentElement.querySelector('.ab')) {
+        console.log(e.target);
+        e.target.parentElement.querySelector('.ab').remove();
+      }
 
     }
+
+    // incorrect password confirmation
     if (password?.value !== confirmPassword?.value) {
       e.target.closest('.form-fields').querySelector('label').classList.add('label-negative-validation');
-      // e.target.closest('.form-fields').querySelector('label').style.backgroundColor = 'red';
-      console.log('incorrect password');
+      e.target.closest('.form-fields').querySelector('label').style.backgroundColor = 'red';
+      // console.log('incorrect password');
+      const markup  = `<p class="small-text ab ">Incorrect password. Try again</p>`;
+
+
+      if (!e.target.parentElement.querySelector('.ab')) {
+        e.target.parentElement.insertAdjacentHTML('beforeend', markup);
+        e.target.closest('.form-fields').querySelector('label').style.backgroundColor = 'red';
+      }
+
     }
   }
   

@@ -82,7 +82,7 @@ input:not(input[type="submit"]) {
   display: block;
   line-height: 3rem;
   margin: 0 0 2rem;
-  background-color: transparent;
+  background-color: #0084;
   color: #fff;
 }
 .form-fields:first-child {
