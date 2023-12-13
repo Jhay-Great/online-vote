@@ -490,6 +490,12 @@ main > *:not(section:nth-of-type(1)) {
 /* CLASS STYLES */
 .vetted {
     background-color: #0d0;
+    color: #fff;
+    cursor: not-allowed;
+}
+.vetted.yes:hover {
+    background-color: #0d0;
+    font-weight: normal;
 }
 .small-text {
     color: var(--small-font);

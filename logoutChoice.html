@@ -99,7 +99,10 @@
         const buttons = document.querySelector('.choice-btn');
 
         buttons.addEventListener('click', function(e) {
-            if(e.target.classList.contains('choice_yes')) localStorage.clear();
+            if(e.target.classList.contains('choice_yes')) {
+                location.replace('/login.html')
+                localStorage.clear()
+            };
             if(e.target.classList.contains('choice_no')) location.replace('/login.html');
         })
     </script>

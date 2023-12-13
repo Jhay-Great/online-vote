@@ -36,9 +36,21 @@ form.addEventListener('submit', function(e) {
     const userEmail = localStorage.getItem('email');
     const userPassword = localStorage.getItem('password');
 
-    const markup = `<p class="small-text ab">Incorrect data entry</p>`;
+    const incorrectPasswordMarkup = `<p class="small-text ab fc-r">Incorrect data entry</p>`;
 
-    (isEmail === userEmail) && (isPassword === userPassword) ? location.replace('account.html') : password.insertAdjacentHTML('beforeend', markup);
+    const invalidUserMarkup = `<p class="small-text ab fc-r">User does not exist. Sign up</p>`;
+
+    if ((isEmail === userEmail) && (isPassword === userPassword)) {
+        location.replace('account.html');
+    }
+    
+    if ((isEmail === userEmail) && (isPassword !== userPassword)) {
+        password.insertAdjacentHTML('beforeend', incorrectPasswordMarkup);
+    }
+
+    if ((isEmail !== userEmail) && (isPassword !== userPassword)) {
+        password.insertAdjacentHTML('beforeend', invalidUserMarkup);
+    }
 
 
     

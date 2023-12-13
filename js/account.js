@@ -77,7 +77,23 @@ const aspirants = data.aspirants;
 
 // const h = {...aspirants};
 // console.log(h);
-// h[0].name = 'john Sowah'
+// h[0].name = 'john Sowah';
+
+
+// helper functions
+
+const displayUserName = function(name) {
+    // const isVowel = `${name.replace(name.at(0), name.at(0).toUpperCase())}'`;
+    // const isConsonant = `${name.replace(name.at(0), name.at(0).toUpperCase())}'s`
+
+    const userName = `${name.replace(name.at(0), name.at(0).toUpperCase())}`;
+
+    const nameID = name.at(-1) === 's' ? `${userName}'` : `${userName}'s`;
+    // const nameID = name.at(-1) === 's' ? isVowel : isConsonant;
+
+    document.querySelector('.vote_title').textContent = `${nameID} Dashboard`;
+}
+
 
 
 
@@ -197,7 +213,9 @@ aspirantContainer.addEventListener('click', function(e) {
 document.addEventListener('DOMContentLoaded', function() {
     const {name, aspirant: chosenAspirant, vote} = localStorage;
     const profileID = name.slice(0, 2);
-
+    
+    displayUserName(name);
+    
     document.querySelector('.profile-image').textContent = profileID;
 
     if(!localStorage.getItem('aspirant') && !localStorage.getItem('vote')) return;
@@ -205,6 +223,7 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('.individual_aspirants').forEach(aspirant => {
         if(aspirant.querySelector('.aspirant-name').textContent === chosenAspirant) {
             aspirant.querySelector('button').classList.add('vetted');
+            aspirant.querySelector('button').disabled = true;
         }
         if(aspirant.querySelector('.aspirant-name').textContent !== chosenAspirant) {
             aspirant.querySelector('button').remove();
@@ -223,7 +242,8 @@ document.addEventListener('DOMContentLoaded', function() {
 // log out and dark mode
 pageControls.addEventListener('click', function(e) {
     if(e.target.closest('.log-out')) {
-        location.href = ('/logoutChoice.html');
+        location.replace('/logoutChoice.html');
+        // location.href = ('/logoutChoice.html');
         // location.replace('/login.html');
     };
 })
