@@ -83,13 +83,9 @@ const aspirants = data.aspirants;
 // helper functions
 
 const displayUserName = function(name) {
-    // const isVowel = `${name.replace(name.at(0), name.at(0).toUpperCase())}'`;
-    // const isConsonant = `${name.replace(name.at(0), name.at(0).toUpperCase())}'s`
-
     const userName = `${name.replace(name.at(0), name.at(0).toUpperCase())}`;
 
     const nameID = name.at(-1) === 's' ? `${userName}'` : `${userName}'s`;
-    // const nameID = name.at(-1) === 's' ? isVowel : isConsonant;
 
     document.querySelector('.vote_title').textContent = `${nameID} Dashboard`;
 }

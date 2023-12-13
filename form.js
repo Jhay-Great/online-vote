@@ -132,7 +132,7 @@ okayBtn.addEventListener("click", function () {
 
   setTimeout(() => {
       animation.classList.add('hidden');
-      location.href = 'account.html';
+      // location.href = 'account.html';
       // location.replace('account.html');
       
   }, 3000);
