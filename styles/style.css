@@ -3,7 +3,9 @@
 .sticky {
     position: absolute;
 } */
-
+.hidden {
+    display: none;
+}
 /* ----------------------------------HEADER STYLES--------------------------------------- */
 header  {
     /* color: var(--font-color);
@@ -171,12 +173,12 @@ button a {
 }
 
 /* -----------------------------MAIN STYLES------------------------------------- */
-body {
-    /* background-color: #FFFA72; */
-    /* background-color: rgb(199, 225, 243); */
-    /* background-color: rgb(184, 207, 230); */
-    /* background-color: rgb(169, 190, 218); */
-}
+/* body {
+    background-color: #FFFA72;
+    background-color: rgb(199, 225, 243);
+    background-color: rgb(184, 207, 230);
+    background-color: rgb(169, 190, 218);
+} */
 main {
     background: linear-gradient(to top right, rgb(199, 225, 243) 95%, rgb(184, 207, 230)  98.7%, rgb(169, 190, 218) 98.7%);
     display: flex;
@@ -184,8 +186,11 @@ main {
     align-items: center;
     padding: 5rem 3.5rem 0;
 }
-main > * {
-    /* opacity: 0; */
+.faint {
+    opacity: 0;
+}
+.visible {
+    opacity: 1;
 }
 .get-started,
 .about-us {
@@ -194,6 +199,17 @@ main > * {
 }
 h2 {
     font-size: 2.5rem;
+}
+.animated__info > button {
+    font-size: .9rem;
+    width: fit-content;
+    padding: 1rem;
+    cursor: pointer;
+    margin-top: 3rem;
+    margin: 3rem auto 0;
+    color: white;
+    font-weight: 600;
+    /* animation: pull-up 1000ms 15s 1 linear both; */
 }
 
 /* text animation */
@@ -212,9 +228,9 @@ h2 {
     letter-spacing: 2px;
     /* animation: text-anime 6s 1 linear forwards; */
 }
-.animated__info > p:first-child {
-    /* position: relative;
-    top: 0; */
+/* .animated__info > p:first-child {
+    position: relative;
+    top: 0;
     animation: drop 1000ms 1 linear both;
 }
 .animated__info > p:nth-child(2) {
@@ -227,6 +243,21 @@ h2 {
     animation: slide-left 1000ms 9s 1 linear both;  
 }
 .animated__info > p:nth-child(5) {
+    animation: pull-up 1000ms 12s 1 linear both;  
+} */
+.anime_0 {
+    animation: drop 1000ms 1 linear both;
+}
+.anime_1 {
+    animation: slide-left 1000ms 3s 1 linear both;  
+}
+.anime_2 {
+    animation: slide-right 1000ms 6s 1 linear both;
+}
+.anime_3 {
+    animation: slide-left 1000ms 9s 1 linear both;  
+}
+.anime_4 {
     animation: pull-up 1000ms 12s 1 linear both;  
 }
 

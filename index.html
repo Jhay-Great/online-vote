@@ -6,7 +6,7 @@
     <title>Online voting</title>
     <link rel="stylesheet" href="./styles/baseStyle.css">
     <link rel="stylesheet" href="./styles/style.css">
-    <script src="script.js" defer></script>
+    <script src="./js/script.js" defer></script>
 </head>
 <body>
     <header>
@@ -31,9 +31,11 @@
 
             <p>Bringing to you, comfort beyond comfort</p>
             <p>Time efficient and effective experience</p>
-            <p>Prompt data collection
+            <p>Prompt data collection</p>   
+
+            <button class="get-started_btn">Getting Started</button>
         </section>
-        <section class="get-started" id="get-started" >
+        <section class="get-started hidden faint" id="get-started" >
             <h2>Getting Started</h2>
             <div class="info">
                 <p>Want to create your own polls</p> 
@@ -63,7 +65,7 @@
             </div>
         </section>
 
-        <section class="about-us" id="about-us">
+        <section class="about-us hidden faint" id="about-us">
             <h2>About</h2>
             <h3>What you need to know</h3>
             <p>Tired of the never end waste of time</p>
@@ -126,7 +128,7 @@
     </main> -->
 
     <!-- Footer - Contact info -->
-    <footer>
+    <footer class="hidden">
         <section>
             <div class='contact-logo'><img src='./assets/Facebook.png' alt="facebook logo" /></div>
             <div class='contact-logo'><img src='./assets/iconTwitter.svg' alt="twitter logo" /></div>
