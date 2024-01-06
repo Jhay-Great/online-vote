@@ -195,11 +195,24 @@ main {
 .get-started,
 .about-us {
     margin: 0 0 5rem;
+    padding: 3rem 0 0;
     width: 100%;
 }
 h2 {
     font-size: 2.5rem;
 }
+
+.get-started  p,
+.about-us  p {
+    margin: 0 0 1rem;
+}
+
+.get-started > * {
+    margin: 2rem 0 0;
+}
+
+
+
 .animated__info > button {
     font-size: .9rem;
     width: fit-content;
@@ -209,7 +222,7 @@ h2 {
     margin: 3rem auto 0;
     color: white;
     font-weight: 600;
-    /* animation: pull-up 1000ms 15s 1 linear both; */
+    animation: pull-up 1000ms 15s 1 linear both;
 }
 
 /* text animation */

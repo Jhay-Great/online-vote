@@ -13,12 +13,14 @@ const observerFn = function(entries) {
         animatedText.style.opacity = 1;
         // getStarted.style.opacity = 1;
 
-        // const children = animatedText.querySelectorAll('.animated__info > *');;
-        // children.forEach((child, i) => {
-        //     // console.log(i, child)
-        //     child.classList.add(`anime_${i}`);
-        // })
+        const children = animatedText.querySelectorAll('.animated__info > *');
+        children.forEach((child, i) => {
+            // console.log(i, child)
+            child.classList.add(`anime_${i}`);
+        })
     }
+
+    // textObserver.unobserve(animatedText);
     
 }
 
